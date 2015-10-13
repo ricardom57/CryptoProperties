@@ -14,7 +14,7 @@ import java.sql.Statement;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-@Path("/ftocservice")
+@Path("/historiaClinica")
 public class HistoriasClinicasService {
  
 	  @GET
