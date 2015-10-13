@@ -7,7 +7,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
- 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 @Path("/ftocservice")
 public class HistoriasClinicasService {
  
@@ -21,8 +27,8 @@ public class HistoriasClinicasService {
 		celsius = (fahrenheit - 32)*5/9; 
 		jsonObject.put("F Value", fahrenheit); 
 		jsonObject.put("C Value", celsius);
- 
-		String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
+		String result = new SISDBPool().testDataSource();
+		//String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
 		return Response.status(200).entity(result).build();
 	  }
  
