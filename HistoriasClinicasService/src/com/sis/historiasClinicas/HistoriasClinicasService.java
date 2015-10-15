@@ -12,6 +12,7 @@ public class HistoriasClinicasService {
 	private SISPersistence persistence;
 
 	public HistoriasClinicasService() {
+		persistence = new SISPersistence();
 		persistence.conectar();
 	}
 

@@ -57,7 +57,7 @@ public class SISPersistence {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
-			rs = stmt.executeQuery("SELECT * FROM HISTORIAS_CLINICAS");
+			rs = stmt.executeQuery("SELECT * FROM HISTORIA_CLINICA");
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
 				obj.put("id", rs.getInt("id"));
@@ -93,7 +93,7 @@ public class SISPersistence {
 		JSONArray response = new JSONArray();
 		try {
 			rs = stmt
-					.executeQuery("SELECT * FROM HISTORIAS_CLINICAS WHERE idPaciente="
+					.executeQuery("SELECT * FROM HISTORIA_CLINICA WHERE idPaciente="
 							+ id);
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
