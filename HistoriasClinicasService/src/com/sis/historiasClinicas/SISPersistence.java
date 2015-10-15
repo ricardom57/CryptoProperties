@@ -73,6 +73,7 @@ public class SISPersistence {
 				obj.put("tipoFuente", rs.getString("tipoFuente"));
 				obj.put("datosSubjetivos", rs.getString("datosSubjetivos"));
 				obj.put("pronostico", rs.getString("pronostico"));
+				response.put(obj);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -109,6 +110,7 @@ public class SISPersistence {
 				obj.put("tipoFuente", rs.getString("tipoFuente"));
 				obj.put("datosSubjetivos", rs.getString("datosSubjetivos"));
 				obj.put("pronostico", rs.getString("pronostico"));
+				response.put(obj);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
