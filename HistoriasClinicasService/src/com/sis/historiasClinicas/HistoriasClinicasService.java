@@ -11,27 +11,25 @@ import javax.ws.rs.core.Response;
 @Path("/historiaClinica")
 public class HistoriasClinicasService {
 
-	@Path("dummy")
-	@GET
-	@Produces({ "application/json" })
-	public Response dummyService() throws SQLException {
-		return Response.status(200).entity(new SISPersistence().dummyService())
-				.header("Access-Control-Allow-Origin", "*").build();
+	private SISPersistence sis;
+
+	public HistoriasClinicasService() {
+		sis = new SISPersistence();
 	}
 
 	@GET
 	@Produces({ "application/json" })
 	public Response historiaClinicaService() throws SQLException {
-		return Response.ok(new SISPersistence().historiasClinicasService().toString())
+		return Response.ok(sis.historiasClinicasService().toString())
 				.header("Access-Control-Allow-Origin", "*").build();
 	}
 
 	@Path("{id}")
 	@GET
 	@Produces({ "application/json" })
-	public Response historiaClinicaByIdService(@PathParam("id") int id) throws SQLException {
-		return Response
-				.ok(new SISPersistence().historiasClinicasByIdService(id).toString())
+	public Response historiaClinicaByIdService(@PathParam("id") int id)
+			throws SQLException {
+		return Response.ok(sis.historiasClinicasByIdService(id).toString())
 				.header("Access-Control-Allow-Origin", "*").build();
 	}
 }

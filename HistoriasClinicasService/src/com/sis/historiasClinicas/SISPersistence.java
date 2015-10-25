@@ -20,10 +20,14 @@ public class SISPersistence {
 		ds.setUser("jmtoro10");
 		ds.setPassword("12345678");
 	}
-	
-	public SISPersistence() throws SQLException {
-		con = ds.getConnection();
-		stmt = con.createStatement();
+
+	public SISPersistence() {
+		try {
+			con = ds.getConnection();
+			stmt = con.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String dummyService() {
