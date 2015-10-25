@@ -13,22 +13,17 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 public class SISPersistence {
 	private Connection con;
 	private Statement stmt;
-	private MysqlDataSource ds;
-
-	public SISPersistence() {
+	private static MysqlDataSource ds;
+	static {
 		ds = new MysqlDataSource();
-		ds.setURL("jdbc:mysql://157.253.236.94:3306/SISDB");
-		ds.setUser("root");
-		ds.setPassword("Estudiante1");
+		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
+		ds.setUser("jmtoro10");
+		ds.setPassword("12345678");
 	}
-
-	public void conectar() {
-		try {
-			con = ds.getConnection();
-			stmt = con.createStatement();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	
+	public SISPersistence() throws SQLException {
+		con = ds.getConnection();
+		stmt = con.createStatement();
 	}
 
 	public String dummyService() {
