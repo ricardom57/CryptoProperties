@@ -30,28 +30,6 @@ public class SISPersistence {
 		}
 	}
 
-	public String dummyService() {
-		ResultSet rs = null;
-		String response = "";
-		try {
-			rs = stmt.executeQuery("SELECT * FROM Test");
-			while (rs.next()) {
-				response += "ID=" + rs.getInt("id") + ", Name="
-						+ rs.getString("nombre") + "\n";
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return response;
-	}
-
 	public JSONArray historiasClinicasService() {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
