@@ -13,7 +13,7 @@ public class HistoriasClinicasService {
 	@Produces({ "application/json" })
 	public Response historiaClinicaService() {
 		return Response
-				.ok(SISPersistence.historiasClinicasService().toString())
+				.ok(new SISPersistence().historiasClinicasService().toString())
 				.header("Access-Control-Allow-Origin", "*").build();
 	}
 
@@ -22,7 +22,7 @@ public class HistoriasClinicasService {
 	@Produces({ "application/json" })
 	public Response historiaClinicaByIdService(@PathParam("id") int id) {
 		return Response
-				.ok(SISPersistence.historiasClinicasByIdService(id).toString())
+				.ok(new SISPersistence().historiasClinicasByIdService(id).toString())
 				.header("Access-Control-Allow-Origin", "*").build();
 	}
 }

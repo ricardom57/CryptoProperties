@@ -5,39 +5,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.ConnectionPoolDataSource;
+import javax.sql.PooledConnection;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class SISPersistence {
-	private static Connection con;
-	private static Statement stmt;
+	private Connection con;
+	private Statement stmt;
 	private static MysqlDataSource ds;
-	private static boolean inicializado = false;
+	
 	static {
 		inicializar();
 	}
 
 	private static void inicializar() {
 		ds = new MysqlDataSource();
-		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
-		ds.setUser("jmtoro10");
-		ds.setPassword("12345678");
-
+		com.mysql.jdbc.jdbc2.optional.MysqlDataSource ds 
+        = new com.mysql.jdbc.jdbc2.optional.MysqlDataSource();
+		ds.setURL("jdbc:mysql://157.253.236.94:3306/SISDB");
+		ds.setUser("root");
+		ds.setPassword("Estudiante1");
+	}
+	
+	public SISPersistence(){
 		try {
 			con = ds.getConnection();
 			stmt = con.createStatement();
-			inicializado = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static JSONArray historiasClinicasService() {
-		if (!inicializado) {
-			inicializar();
-		}
+	public JSONArray historiasClinicasService() {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
@@ -63,8 +66,11 @@ public class SISPersistence {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null)
+				if (rs != null){
 					rs.close();
+				}
+				stmt.close();
+				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -72,10 +78,7 @@ public class SISPersistence {
 		return response;
 	}
 
-	public static JSONArray historiasClinicasByIdService(int id) {
-		if (!inicializado) {
-			inicializar();
-		}
+	public JSONArray historiasClinicasByIdService(int id) {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
@@ -103,8 +106,11 @@ public class SISPersistence {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null)
+				if (rs != null){
 					rs.close();
+				}
+				stmt.close();
+				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
