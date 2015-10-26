@@ -16,18 +16,7 @@ public class SISPersistence {
 	private static MysqlDataSource ds;
 	private static boolean inicializado = false;
 	static {
-		ds = new MysqlDataSource();
-		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
-		ds.setUser("jmtoro10");
-		ds.setPassword("12345678");
-
-		try {
-			con = ds.getConnection();
-			stmt = con.createStatement();
-			inicializado = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		inicializar();
 	}
 
 	private static void inicializar() {
