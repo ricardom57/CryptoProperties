@@ -24,11 +24,9 @@ public class SISPersistence {
 
 	private static void inicializar() {
 		ds = new MysqlDataSource();
-		com.mysql.jdbc.jdbc2.optional.MysqlDataSource ds 
-        = new com.mysql.jdbc.jdbc2.optional.MysqlDataSource();
-		ds.setURL("jdbc:mysql://157.253.236.94:3306/SISDB");
-		ds.setUser("root");
-		ds.setPassword("Estudiante1");
+		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
+		ds.setUser("jmtoro10");
+		ds.setPassword("12345678");
 	}
 	
 	public SISPersistence(){
