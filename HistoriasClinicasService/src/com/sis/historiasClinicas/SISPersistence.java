@@ -14,6 +14,7 @@ public class SISPersistence {
 	private static Connection con;
 	private static Statement stmt;
 	private static MysqlDataSource ds;
+	private static boolean inicializado = false;
 	static {
 		ds = new MysqlDataSource();
 		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
@@ -23,12 +24,31 @@ public class SISPersistence {
 		try {
 			con = ds.getConnection();
 			stmt = con.createStatement();
+			inicializado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void inicializar() {
+		ds = new MysqlDataSource();
+		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
+		ds.setUser("jmtoro10");
+		ds.setPassword("12345678");
+
+		try {
+			con = ds.getConnection();
+			stmt = con.createStatement();
+			inicializado = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static JSONArray historiasClinicasService() {
+		if (!inicializado) {
+			inicializar();
+		}
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
@@ -64,6 +84,9 @@ public class SISPersistence {
 	}
 
 	public static JSONArray historiasClinicasByIdService(int id) {
+		if (!inicializado) {
+			inicializar();
+		}
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
