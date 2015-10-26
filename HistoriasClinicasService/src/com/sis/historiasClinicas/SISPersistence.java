@@ -11,17 +11,15 @@ import org.json.JSONObject;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class SISPersistence {
-	private Connection con;
-	private Statement stmt;
+	private static Connection con;
+	private static Statement stmt;
 	private static MysqlDataSource ds;
 	static {
 		ds = new MysqlDataSource();
 		ds.setURL("jdbc:mysql://sisa.cf6qs3skpbuq.us-west-2.rds.amazonaws.com:3306/SIS");
 		ds.setUser("jmtoro10");
 		ds.setPassword("12345678");
-	}
 
-	public SISPersistence() {
 		try {
 			con = ds.getConnection();
 			stmt = con.createStatement();
@@ -30,7 +28,7 @@ public class SISPersistence {
 		}
 	}
 
-	public JSONArray historiasClinicasService() {
+	public static JSONArray historiasClinicasService() {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
@@ -65,7 +63,7 @@ public class SISPersistence {
 		return response;
 	}
 
-	public JSONArray historiasClinicasByIdService(int id) {
+	public static JSONArray historiasClinicasByIdService(int id) {
 		ResultSet rs = null;
 		JSONArray response = new JSONArray();
 		try {
