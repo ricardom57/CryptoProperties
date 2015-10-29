@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Rsrc-Class-Path: ./ icu4j-3.4.4.jar jasypt-1.9.2-javadoc.jar jasypt-1.
+ 9.2-lite.jar jasypt-1.9.2-sources.jar jasypt-1.9.2.jar jasypt-acegise
+ curity-1.9.2-javadoc.jar jasypt-acegisecurity-1.9.2-sources.jar jasyp
+ t-acegisecurity-1.9.2.jar jasypt-hibernate3-1.9.2-javadoc.jar jasypt-
+ hibernate3-1.9.2-sources.jar jasypt-hibernate3-1.9.2.jar jasypt-hiber
+ nate4-1.9.2-javadoc.jar jasypt-hibernate4-1.9.2-sources.jar jasypt-hi
+ bernate4-1.9.2.jar jasypt-spring2-1.9.2-javadoc.jar jasypt-spring2-1.
+ 9.2-sources.jar jasypt-spring2-1.9.2.jar jasypt-spring3-1.9.2-javadoc
+ .jar jasypt-spring3-1.9.2-sources.jar jasypt-spring3-1.9.2.jar jasypt
+ -spring31-1.9.2-javadoc.jar jasypt-spring31-1.9.2-sources.jar jasypt-
+ spring31-1.9.2.jar jasypt-springsecurity2-1.9.2-javadoc.jar jasypt-sp
+ ringsecurity2-1.9.2-sources.jar jasypt-springsecurity2-1.9.2.jar jasy
+ pt-springsecurity3-1.9.2-javadoc.jar jasypt-springsecurity3-1.9.2-sou
+ rces.jar jasypt-springsecurity3-1.9.2.jar jasypt-wicket13-1.9.2-javad
+ oc.jar jasypt-wicket13-1.9.2-sources.jar jasypt-wicket13-1.9.2.jar ja
+ sypt-wicket15-1.9.2-javadoc.jar jasypt-wicket15-1.9.2-sources.jar jas
+ ypt-wicket15-1.9.2.jar
+Class-Path: .
+Rsrc-Main-Class: CryptoMain
+Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader
+
